@@ -1,0 +1,41 @@
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-08-31T08:49:00.507Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-01T06:38:39.081Z"}
+{"level":"error","message":"uncaughtException TypeError: corsOptions is not a function","timestamp":"2025-09-01T06:44:53.374Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-01T09:39:18.195Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-02T06:43:21.035Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-02T08:35:33.329Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-03T08:47:33.985Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-05T09:31:53.965Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-06T09:38:17.159Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-06T10:45:01.481Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-07T10:16:58.398Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-08T09:38:48.545Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-09T09:34:40.393Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-09T10:29:11.655Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-09T10:51:09.369Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-10T09:26:03.291Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-12T09:18:39.072Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-13T09:47:55.662Z"}
+{"level":"error","message":"unhandle error Error: Error: querySrv EREFUSED _mongodb._tcp.cluster0.j8elq8i.mongodb.net","timestamp":"2025-09-16T06:44:55.609Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-18T09:37:53.889Z"}
+{"level":"error","message":"unhandle error Error: Error: querySrv EREFUSED _mongodb._tcp.cluster0.eqt2bl4.mongodb.net","timestamp":"2025-09-22T08:03:20.925Z"}
+{"level":"error","message":"unhandle error Error: Error: querySrv EREFUSED _mongodb._tcp.cluster0.eqt2bl4.mongodb.net","timestamp":"2025-09-22T08:18:24.362Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-22T09:41:52.320Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-22T10:30:13.141Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-22T12:41:39.202Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-23T09:17:09.159Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-23T11:20:36.482Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-24T07:35:34.739Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-24T11:31:35.311Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-09-30T13:02:51.897Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-10-01T08:00:16.299Z"}
+{"level":"error","message":"uncaughtException Error: listen EADDRINUSE: address already in use :::5000","timestamp":"2025-10-01T08:20:57.118Z"}
+{"level":"error","message":"uncaughtException Error: listen EADDRINUSE: address already in use :::5000","timestamp":"2025-10-01T08:21:20.796Z"}
+{"level":"error","message":"uncaughtException Error: listen EADDRINUSE: address already in use :::5000","timestamp":"2025-10-01T08:22:14.783Z"}
+{"level":"error","message":"uncaughtException Error: listen EADDRINUSE: address already in use :::5000","timestamp":"2025-10-01T08:22:19.326Z"}
+{"level":"error","message":"uncaughtException Error: listen EADDRINUSE: address already in use :::5000","timestamp":"2025-10-01T08:22:29.376Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-10-01T09:03:44.023Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-10-07T16:01:31.434Z"}
+{"level":"error","message":"unhandle error Error: MongoParseError: Invalid scheme, expected connection string to start with \"mongodb://\" or \"mongodb+srv://\"","timestamp":"2026-06-30T08:27:01.106Z"}
+{"level":"error","message":"unhandle error Error: MongoParseError: Invalid scheme, expected connection string to start with \"mongodb://\" or \"mongodb+srv://\"","timestamp":"2026-06-30T08:33:29.404Z"}
+{"level":"error","message":"unhandle error Error: Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.eqt2bl4.mongodb.net","timestamp":"2026-06-30T08:37:21.755Z"}

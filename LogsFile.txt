@@ -1,0 +1,12 @@
+{"level":"error","message":"uncaughtException ReferenceError: Ma is not defined","timestamp":"2025-08-25T11:29:38.190Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-08-26T07:30:19.278Z"}
+{"level":"error","message":"unhandle error Error: Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.eqt2bl4.mongodb.net","timestamp":"2025-08-26T07:32:24.219Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-08-26T08:43:30.150Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-08-27T08:21:25.436Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-08-28T08:35:45.121Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-08-29T08:38:02.531Z"}
+{"level":"error","message":"uncaughtException Error: read ECONNRESET","timestamp":"2025-08-29T13:09:59.204Z"}
+{"level":"error","message":"uncaughtException Error: Heartbeat timeout","timestamp":"2025-08-30T07:37:34.800Z"}
+{"level":"error","message":"error Route not found","timestamp":"2025-08-25T07:21:29.400Z"}
+{"level":"error","message":"statusCode-200 in url- /api/v1/auth/loginEmployee, req-method- POST CastError: Cast to Number failed for value \"NaN\" (type number) at path \"employeeId\" for model \"EmployeeMaster\"","timestamp":"2025-08-25T07:22:53.913Z"}
+{"level":"error","message":"error Route not found","timestamp":"2025-08-29T04:55:15.478Z"}

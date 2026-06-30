@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    // "module": "esnext",
+    "module": "CommonJS",
+    "target": "ES2020",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "strict": true,
+    "outDir": "dist",
+    "baseUrl": "."
+  },
+
+  "exclude": [ 
+    "node_modules"
+  ],
+  "noImplicitAny": true,
+  "include": ["**/*.ts", "**/*.tsx", "compiledist.js","**/*.js"]
+}

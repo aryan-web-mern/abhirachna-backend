@@ -1,0 +1,28 @@
+<div style="background-color:#0a0a40;padding:40px;color:white;font-family:sans-serif;">
+  <h1>Your Personalized Interior Estimate</h1>
+  <p>A smart price range based on your home layout and essential services.</p>
+  <h2 style="margin:20px 0;">Estimated Range</h2>
+  <p style="font-size:24px;font-weight:bold;">
+    ₹{{minEstimate}} – ₹{{maxEstimate}}
+  </p>
+  <hr style="margin:30px 0;border-color:#fff;" />
+  
+  <h3>Layout: {{layoutType}} Layout</h3>
+  <ul style="padding-left:20px;">
+    <li>{{SleepingArea}} Bedroom</li>
+    <li>{{Bathroom}} Bathroom</li>
+    <li>{{UtilityArea}} Living Room</li>
+    <li>{{Kitchen}} Kitchen</li>
+    <li>{{Dining}} Dining Area</li>
+  </ul>
+  
+  <h3>Selected Design Options</h3>
+  <ul>
+    {{#each selectedDesignOptions}}
+      <li><strong>{{this.category}}:</strong> {{this.label}}</li>
+    {{/each}}
+  </ul>
+  
+  <p style="color:#BDBDBD;font-size:12px;">*Based on your selections</p>
+  <a href="https://yourdomain.com/contact" style="background:#fff;color:#0a0a40;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:bold;">Contact Now</a>
+</div>

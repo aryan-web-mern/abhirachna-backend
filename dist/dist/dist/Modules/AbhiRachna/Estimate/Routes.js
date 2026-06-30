@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const Estimate_Controllers_1 = require("./Controllers/Estimate.Controllers");
+const requireParameters_1 = __importDefault(require("../../../Middlewares/Global/requireParameters"));
+const ValidateCokkies_1 = require("../../../Middlewares/Auth/ValidateCokkies");
+const router = express_1.default.Router();
+router.post("/create-design-options", (0, requireParameters_1.default)("category", "label", "pricePerSqft"), Estimate_Controllers_1.createDesignOptionController);
+router.get("/get-all-design-options", Estimate_Controllers_1.getAllDesignOptionsController);
+router.get("/get-single-design-otpion/:id", Estimate_Controllers_1.getSingleDesignOptionController);
+router.delete("/delete-design-options/:id", Estimate_Controllers_1.deleteDesignOptionController);
+router.put("/update-design-options/:id", Estimate_Controllers_1.updateDesignOptionController);
+router.post("/create-lead-with-estimate", ValidateCokkies_1.checkAuth, (0, requireParameters_1.default)("name", "mobile", "address", "AreaDetails", "squareFeetRange", "selectedDesignOptions", "leadtype", "layoutType"), Estimate_Controllers_1.createLeadWithEstimateController);
+router.post("/create-estimate-existing-lead", ValidateCokkies_1.checkAuth, (0, requireParameters_1.default)("AreaDetails", "squareFeetRange", "selectedDesignOptions", "leadtype", "leadId", "layoutType"), Estimate_Controllers_1.createEstimateExitingLeadController);
+router.get("/getestimate/:estimateId", Estimate_Controllers_1.getEstimateByLeadIdController);
+router.put("/updateEstimate/:id", ValidateCokkies_1.checkAuth, Estimate_Controllers_1.updateEstimateExitingLeadController);
+exports.default = router;

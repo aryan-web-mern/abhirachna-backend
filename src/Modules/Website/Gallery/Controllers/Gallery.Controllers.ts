@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { ErrorResponse, STATUS_CODE, SuccessResponse } from "../../../../Api";
 import { deleteGalleryService, getAllGalleryService, getFilteredGalleryService, getGalleryByIdService, likeGalleryService, publishGalleryService, saveGalleryService, unpublishGalleryService, updateGalleryService, uploadGalleryService } from "../Services/Gallery.Services";
 import { NextFunction, Request, Response } from "express";
+import { getUploadedFileUrl } from "../../../../Middlewares/Multers/uploadHelpers";
 import { isValidObjectId } from "../../../../Config/db";
 import { AuthenticatedRequest } from "src/types/types";
 
@@ -14,8 +15,8 @@ export const uploadGalleryController = async (req: Request, res: Response, next:
 
     const userId = req?.user?._id;
     const { imageName, theme, storage, subheading } = req.body;
-    const imageKey = (req.file as any)?.key;
-    const gallery = await uploadGalleryService({ imageName, imageKey, theme, uploadedBy: userId, draft, published, storage, subheading });
+    const imageKey = getUploadedFileUrl(req.file);
+    const gallery = await uploadGalleryService({ imageName, imageKey, theme, uploadedBy: userId, draft, published, storage: imageKey ? "cloudinary" : storage, subheading });
     return SuccessResponse(res, STATUS_CODE.OK, "Image uploaded");
   } catch (err: any) {
     next(err);
@@ -153,10 +154,10 @@ export const updateGalleryController = async (
     const { galleryId } = req.params as any;
     let updateData = req.body;
 
-    const imageKey = (req.file as any)?.key;
+    const imageKey = getUploadedFileUrl(req.file);
 
     if (imageKey) {
-      updateData = { ...updateData, imageKey };
+      updateData = { ...updateData, imageKey, storage: "cloudinary" };
     }
 
     if (!userId) {

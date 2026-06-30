@@ -1,4 +1,4 @@
-import { deleteFromS3 } from "../../../../Middlewares/Multers/S3Delete/S3Delete";
+import { deleteUploadedFile } from "../../../../Middlewares/Multers/Cloudinary/Delete";
 import { getUserLikedGalleryIds, getUserSavedGalleryIds } from "../Helpers/gallery.helper";
 import { GalleryLikeModel, GalleryModel, GallerySaveModel } from "../Modals/Gallery.Modals";
 
@@ -180,7 +180,7 @@ export const updateGalleryRepo = async (GalleryId: string, userId: string, updat
     const oldGallery = gallery?.imageKey
     await gallery.updateOne(updateData)
 
-    if(updateData?.imageKey && oldGallery) await deleteFromS3(oldGallery)
+    if(updateData?.imageKey && oldGallery) await deleteUploadedFile(oldGallery)
 
     return gallery;
   } catch (err: any) {

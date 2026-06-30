@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const Uploads_1 = require("../../../Middlewares/Multers/S3Uploads/Uploads");
+const Gallery_Controllers_1 = require("./Controllers/Gallery.Controllers");
+const CheckDesignation_1 = require("../../../Middlewares/Auth/CheckDesignation");
+const ValidateCokkies_1 = require("../../../Middlewares/Auth/ValidateCokkies");
+const router = express_1.default.Router();
+router.post("/upload", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkRole)(["Employee"]), Uploads_1.uploadS3.single("image"), Gallery_Controllers_1.uploadGalleryController);
+router.get("/get-all", Gallery_Controllers_1.getAllGalleryController);
+router.post("/like/:id", ValidateCokkies_1.checkAuth, Gallery_Controllers_1.likeGalleryController);
+router.post("/save/:id", ValidateCokkies_1.checkAuth, Gallery_Controllers_1.saveGalleryController);
+router.get("/get-filtered-gallery", ValidateCokkies_1.checkAuth, Gallery_Controllers_1.getSaveAndLikeddGalleryController);
+router.get("/:id", Gallery_Controllers_1.getGalleryByIdController);
+router.delete("/:id", ValidateCokkies_1.checkAuth, Gallery_Controllers_1.deleteGalleryController);
+router.put("/:id/unpublish", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkRole)(["Employee"]), Gallery_Controllers_1.unpublishGalleryController);
+router.put("/:id/publish", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkRole)(["Employee"]), Gallery_Controllers_1.publishGalleryController);
+router.put("/:galleryId", Uploads_1.uploadS3.single("image"), ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkRole)(["Employee"]), Gallery_Controllers_1.updateGalleryController);
+exports.default = router;

@@ -12,7 +12,8 @@
   },
 
   "exclude": [ 
-    "node_modules"
+    "node_modules",
+    "dist"
   ],
   "noImplicitAny": true,
   "include": ["**/*.ts", "**/*.tsx", "compiledist.js","**/*.js"]

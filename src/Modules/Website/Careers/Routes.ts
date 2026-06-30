@@ -2,7 +2,7 @@
 import express from "express";
 import { applyJobController, createJobController, deleteAppliedJobController, deleteJobController, editJobController, getAllJobsController, getAppliedJobsController, getJobByIdController, publishJobController, unpublishJobController } from "./Controllers/Careers.Controllers";
 import requireParameters from "../../../Middlewares/Global/requireParameters";
-import { uploadS3 } from "../../../Middlewares/Multers/S3Uploads/Uploads";
+import { uploadCloudinaryCareer } from "../../../Middlewares/Multers/Cloudinary/Uploads";
 import { checkAuth } from "../../../Middlewares/Auth/ValidateCokkies"
 import { checkRole } from "../../../Middlewares/Auth/CheckDesignation";
 
@@ -12,7 +12,7 @@ router.post("/job-create", checkAuth, requireParameters("jobTitle", "jobLocation
 router.put("/:id", checkAuth, editJobController);
 router.get("/get-all-jobs", getAllJobsController);
 router.get("/get-job/:id", getJobByIdController);
-router.post('/apply-job', uploadS3.single("resume"), applyJobController)
+router.post('/apply-job', uploadCloudinaryCareer.single("resume"), applyJobController)
 router.delete("/:id", checkAuth, deleteJobController);
 router.put("/job/:id/publish",checkAuth,checkRole(["Employee"]), publishJobController);
 router.put("/job/:id/unpublish", checkAuth, checkRole(["Employee"]),  unpublishJobController);

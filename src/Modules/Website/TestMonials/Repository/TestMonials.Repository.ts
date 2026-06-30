@@ -1,6 +1,6 @@
 // Testimonials/Repository.ts
 
-import { deleteFromS3 } from "../../../../Middlewares/Multers/S3Delete/S3Delete";
+import { deleteUploadedFile } from "../../../../Middlewares/Multers/Cloudinary/Delete";
 import { TestimonialModel } from "../Modals/TestMonials.Modals";
 
 
@@ -79,16 +79,16 @@ export const updateTestimonialRepo = async (id: string, data: any) => {
  
     if (data.image) {
 
-      if (oldImage && oldImage !== data.image) await deleteFromS3(oldImage);
+      if (oldImage && oldImage !== data.image) await deleteUploadedFile(oldImage);
       if (oldVideo) {
-        await deleteFromS3(oldVideo); 
+        await deleteUploadedFile(oldVideo); 
       }
       data.video = ""; 
     } else if (data.video) {
    
-      if (oldVideo && oldVideo !== data.video) await deleteFromS3(oldVideo);
+      if (oldVideo && oldVideo !== data.video) await deleteUploadedFile(oldVideo);
       if (oldImage) {
-        await deleteFromS3(oldImage); 
+        await deleteUploadedFile(oldImage); 
       }
       data.image = "";
     }

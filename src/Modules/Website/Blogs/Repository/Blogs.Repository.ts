@@ -1,4 +1,4 @@
-import { deleteFromS3 } from "../../../../Middlewares/Multers/S3Delete/S3Delete";
+import { deleteUploadedFile } from "../../../../Middlewares/Multers/Cloudinary/Delete";
 import { BlogLikeModel, BlogModel, BlogSaveModel } from "../Modals/Blogs.Modals";
 
 export const createBlogRepository = async (data: any) => {
@@ -210,7 +210,7 @@ export const updateBlogRepo = async (blogId: string, userId: string, updateData:
     const oldBlogImage = blog?.image 
     if (!blog) throw new Error("Blog not found or user not authorized");
     await blog.updateOne(updateData);
-    if(updateData?.image && oldBlogImage) await deleteFromS3(oldBlogImage) 
+    if(updateData?.image && oldBlogImage) await deleteUploadedFile(oldBlogImage)
     return blog;
   } catch (err: any) {
     throw new Error("Repo error: " + err.message);

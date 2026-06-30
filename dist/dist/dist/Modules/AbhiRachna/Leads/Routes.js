@@ -1,0 +1,36 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const Leads_Controllers_1 = require("./Controllers/Leads.Controllers");
+const requireParameters_1 = __importDefault(require("../../../Middlewares/Global/requireParameters"));
+const ValidateCokkies_1 = require("../../../Middlewares/Auth/ValidateCokkies");
+const CheckDesignation_1 = require("../../../Middlewares/Auth/CheckDesignation");
+const router = express_1.default.Router();
+router.post("/create", ValidateCokkies_1.checkAuth, (0, requireParameters_1.default)("name", "mobile", "email", "address", "leadtype", "estimateDone", "referenceType"), Leads_Controllers_1.createLeadController);
+router.post("/update-estimate/:id", (0, requireParameters_1.default)("estimateDone"), ValidateCokkies_1.checkAuth, Leads_Controllers_1.updateEstimateController);
+// routes/lead.routes.ts
+router.put("/assign/:id", (0, requireParameters_1.default)("assignedTo"), ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkDesignation)(["director"]), Leads_Controllers_1.assignLeadController);
+router.put("/update/:id", ValidateCokkies_1.checkAuth, Leads_Controllers_1.updateLeadController);
+router.get("/get-all-leads/", ValidateCokkies_1.checkAuth, CheckDesignation_1.validateLeadsAccess, Leads_Controllers_1.getAllLeadWithByStatus);
+router.get("/get-all-leads-user", ValidateCokkies_1.checkAuth, Leads_Controllers_1.getAllLeads);
+router.get("/get-all-lead-member", ValidateCokkies_1.checkAuth, Leads_Controllers_1.getAllLeadMemberControler);
+router.get("/get-lead-by-id", ValidateCokkies_1.checkAuth, Leads_Controllers_1.getLeadByIdController);
+router.get("/get-lead-stats", ValidateCokkies_1.checkAuth, Leads_Controllers_1.getLeadStatsController);
+router.put("/approve-lead-designer/:id", ValidateCokkies_1.checkAuth, Leads_Controllers_1.approvedDesignByDesignerController);
+router.put("/restore-lead/:id", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkDesignation)(["director", "personal_assistant"]), Leads_Controllers_1.restoreLeadController);
+router.post("/add-collaborators", ValidateCokkies_1.checkAuth, Leads_Controllers_1.addCollaboratorsController);
+router.put("/remove-collaborators", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkDesignation)(["director", "personal_assistant"]), Leads_Controllers_1.removeCollaboratorsController);
+router.get("/:leadId/top-members", ValidateCokkies_1.checkAuth, Leads_Controllers_1.getTop3LeadMembersController);
+router.get("/get-updated-lead/:leadId", ValidateCokkies_1.checkAuth, Leads_Controllers_1.getUpdatedLeadByIdController);
+router.get("/get-filtered-leads", ValidateCokkies_1.checkAuth, Leads_Controllers_1.getFilteredLeadsController);
+router.get("/get-lead-logsCount", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkDesignation)(["director", "personal_assistant", "salesman", "designer"]), Leads_Controllers_1.getLeadLogsCountController);
+router.put("/create-issue-lead/:id", ValidateCokkies_1.checkAuth, Leads_Controllers_1.createLeadIssueController);
+router.put("/create-discount-request/:id", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkDesignation)(['salesman']), (0, requireParameters_1.default)("quotation", "discountPercent", "leadName"), Leads_Controllers_1.createDiscountRequest);
+router.put("/add-discount/:id", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkDesignation)(['salesman', "director", "personal_assistant"]), Leads_Controllers_1.addDiscount);
+router.put("/approve-discount-request/:id", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkDesignation)(['director', "personal_assistant"]), Leads_Controllers_1.approvedDiscountReq);
+router.put("/approve-discount-request-manual/:id", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkDesignation)(['director', "personal_assistant"]), (0, requireParameters_1.default)("leadId", "Quatation"), Leads_Controllers_1.approvedDiscountReqManually);
+router.get("/last-discount-req/:id", ValidateCokkies_1.checkAuth, Leads_Controllers_1.getLastDiscountReq);
+exports.default = router;

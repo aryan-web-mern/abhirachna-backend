@@ -8,11 +8,12 @@ import {
   updateApprovalStatusService,
   updateTestimonialService,
 } from "../Services/TestMonials.Services";
+import { getUploadedFileUrl } from "../../../../Middlewares/Multers/uploadHelpers";
 import { ErrorResponse, STATUS_CODE, SuccessResponse } from "../../../../Api";
 
 interface UploadFiles {
-  image?: Express.MulterS3.File[];
-  video?: Express.MulterS3.File[];
+  image?: Express.Multer.File[];
+  video?: Express.Multer.File[];
 }
 
 export const createTestimonialController = async (
@@ -36,8 +37,8 @@ export const createTestimonialController = async (
       draft = false;
     }
 
-    const imageKey = files?.image?.[0]?.key || "";
-    const videoKey = files?.video?.[0]?.key || "";
+    const imageKey = getUploadedFileUrl(files?.image?.[0]);
+    const videoKey = getUploadedFileUrl(files?.video?.[0]);
     const data = {
       ...req.body,
       image: imageKey,
@@ -171,8 +172,8 @@ export const updateTestimonialController = async (
     const userId = req?.user?._id;
     const { id } = req.params as any;
     let data = req.body;
-    const imageKey = files?.image?.[0]?.key || "";
-    const videoKey = files?.video?.[0]?.key || "";
+    const imageKey = getUploadedFileUrl(files?.image?.[0]);
+    const videoKey = getUploadedFileUrl(files?.video?.[0]);
 
     if (imageKey) {
       data.image = imageKey;

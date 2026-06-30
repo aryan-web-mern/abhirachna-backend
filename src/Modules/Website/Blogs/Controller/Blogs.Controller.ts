@@ -11,6 +11,7 @@ import {
   unpublishBlogService,
   updateBlogService,
 } from "../Services/Blogs.Services";
+import { getUploadedFileUrl } from "../../../../Middlewares/Multers/uploadHelpers";
 import { ErrorResponse, STATUS_CODE, SuccessResponse } from "../../../../Api";
 import { AuthenticatedRequest } from "src/types/types";
 
@@ -34,7 +35,7 @@ export const createBlogController = async (
     const published = !draft;
 
     const userId = req?.user?._id;
-    const imageKey = (req.file as any)?.key || "";
+    const imageKey = getUploadedFileUrl(req.file);
 
     const blogData = {
       ...req.body,
@@ -232,7 +233,7 @@ export const updateBlogController = async (
     const { blogId } = req.params as any;
     let updateData = req.body;
 
-    const imageKey = (req.file as any)?.key;
+    const imageKey = getUploadedFileUrl(req.file);
 
     if (imageKey) {
       updateData = { ...updateData, image: imageKey };

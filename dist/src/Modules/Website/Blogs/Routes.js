@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const Blogs_Controller_1 = require("./Controller/Blogs.Controller");
+const Uploads_1 = require("../../../Middlewares/Multers/Cloudinary/Uploads");
+const ValidateCokkies_1 = require("../../../Middlewares/Auth/ValidateCokkies");
+const CheckDesignation_1 = require("../../../Middlewares/Auth/CheckDesignation");
+const router = express_1.default.Router();
+router.post("/create", Uploads_1.uploadCloudinaryBlog.single("image"), ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkRole)(["Employee"]), Blogs_Controller_1.createBlogController);
+router.get("/", Blogs_Controller_1.getAllBlogsController);
+router.get("/:id", Blogs_Controller_1.getBlogByIdController);
+router.post("/like/:id", ValidateCokkies_1.checkAuth, Blogs_Controller_1.LikeBlogController);
+router.post("/save/:id", ValidateCokkies_1.checkAuth, Blogs_Controller_1.SaveBlogController);
+router.get("/get-all/saved", ValidateCokkies_1.checkAuth, Blogs_Controller_1.getSavedBlogsController);
+router.delete("/:blogId", ValidateCokkies_1.checkAuth, Blogs_Controller_1.deleteBlogController);
+router.put("/:id/publish", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkRole)(["Employee"]), Blogs_Controller_1.publishBlogController);
+router.put("/:id/unpublish", ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkRole)(["Employee"]), Blogs_Controller_1.unpublishBlogController);
+router.put("/:blogId/update", Uploads_1.uploadCloudinaryBlog.single("image"), ValidateCokkies_1.checkAuth, (0, CheckDesignation_1.checkRole)(["Employee"]), Blogs_Controller_1.updateBlogController);
+exports.default = router;

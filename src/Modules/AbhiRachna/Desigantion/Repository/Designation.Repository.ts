@@ -12,7 +12,7 @@ export const addDesignationRepository = async (data: Object) => {
 
 export const getAllDesignationsRepo = async () => {
   try {
-    return await DesignationModel.find({name: { $nin: ["system", "director"] }});
+    return await DesignationModel.find({name: { $nin: ["system", "director", "cms"] }});
   } catch (error: any) {
     console.error(`add designation repository : ${error.message}`);
     throw error;

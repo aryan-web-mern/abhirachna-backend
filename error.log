@@ -39,3 +39,9 @@
 {"level":"error","message":"unhandle error Error: MongoParseError: Invalid scheme, expected connection string to start with \"mongodb://\" or \"mongodb+srv://\"","timestamp":"2026-06-30T08:27:01.106Z"}
 {"level":"error","message":"unhandle error Error: MongoParseError: Invalid scheme, expected connection string to start with \"mongodb://\" or \"mongodb+srv://\"","timestamp":"2026-06-30T08:33:29.404Z"}
 {"level":"error","message":"unhandle error Error: Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.eqt2bl4.mongodb.net","timestamp":"2026-06-30T08:37:21.755Z"}
+{"level":"error","message":"uncaughtException Error: listen EADDRINUSE: address already in use :::3000","timestamp":"2026-06-30T10:55:37.150Z"}
+{"level":"error","message":"uncaughtException Error: listen EADDRINUSE: address already in use :::3000","timestamp":"2026-06-30T10:56:31.021Z"}
+{"level":"error","message":"uncaughtException Error: listen EADDRINUSE: address already in use :::3000","timestamp":"2026-06-30T10:59:47.421Z"}
+{"level":"error","message":"uncaughtException Error: listen EADDRINUSE: address already in use :::3000","timestamp":"2026-06-30T11:01:15.709Z"}
+{"level":"error","message":"uncaughtException Error: listen EADDRINUSE: address already in use :::3000","timestamp":"2026-06-30T11:02:54.953Z"}
+{"level":"error","message":"uncaughtException Error: listen EADDRINUSE: address already in use :::3000","timestamp":"2026-06-30T11:02:55.236Z"}

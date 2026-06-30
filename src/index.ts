@@ -65,7 +65,7 @@ const appserver = httpcreateServer(app);
 
 const corsOptions = {
   origin: ["https://www.abhirachnaa.com","https://dashboard.abhirachnaa.com","https://abhirachnaa.com","https://www.dashboard.abhirachnaa.com",   "https://chat.abhirachnaa.com",
-    "https://www.chat.abhirachnaa.com"],
+    "https://www.chat.abhirachnaa.com","https://abhirachna.vercel.app"],
   credentials: true,
 };
 
